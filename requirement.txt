@@ -1,0 +1,31 @@
+"Add this in the database"
+
+
+ALTER TABLE `voters`
+ADD COLUMN `status` ENUM('active', 'inactive') DEFAULT 'active';
+
+ALTER TABLE `admin`
+ADD COLUMN `status` ENUM('active', 'inactive') DEFAULT 'active';
+
+ALTER TABLE voters ADD COLUMN is_approved TINYINT(1) DEFAULT 0;
+
+ALTER TABLE admin ADD COLUMN is_approved TINYINT(1) DEFAULT 0;
+
+
+ALTER TABLE vote_results
+DROP COLUMN timestamp;
+
+CREATE TABLE `votes_cast_candidate` (
+    `id` INT AUTO_INCREMENT PRIMARY KEY,
+    `vote_id` INT NOT NULL,
+    `candidate_id` INT NOT NULL,
+    `voter_id` VARCHAR(255) NOT NULL,
+    `timestamp` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (`vote_id`) REFERENCES `votes`(`id`),
+    FOREIGN KEY (`candidate_id`) REFERENCES `candidates`(`id`),
+    FOREIGN KEY (`voter_id`) REFERENCES `voters`(`voter_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+ALTER TABLE votes ADD COLUMN status ENUM('active', 'ended') DEFAULT 'active';
+
+ALTER TABLE votes DROP COLUMN status;

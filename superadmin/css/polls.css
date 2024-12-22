@@ -1,0 +1,431 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar {
+    background-color: #007b8e;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-brand {
+    font-size: 24px;
+    color: white;
+}
+
+.navbar-center ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.navbar-center ul li {
+    margin: 0 15px;
+}
+
+.navbar-center ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.profile-menu-wrapper {
+    position: relative;
+}
+
+.profile-toggle-btn {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.profile-toggle-btn .profile-logo {
+    width: 30px; /* Adjust the size as needed */
+    height: 30px; /* Adjust the size as needed */
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 5px;
+}
+
+.profile-menu, .hamburger-menu {
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-menu ul, .hamburger-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 10px 0;
+}
+
+.profile-menu ul li, .hamburger-menu ul li {
+    padding: 10px 20px;
+}
+
+.profile-menu ul li a, .hamburger-menu ul li a {
+    color: #007b8e;
+    text-decoration: none;
+}
+
+.hamburger-btn {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+    display: none; /* Hide by default, show on mobile view */
+}
+
+@media (max-width: 768px) {
+    .hamburger-btn {
+        display: block;
+    }
+
+    .navbar-center ul {
+        display: none;
+    }
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+.container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.admin-profile {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.admin-profile img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #444;
+    font-size: 2em;
+    text-align: center;
+}
+h2 {
+    margin-bottom: 20px;
+    color: #007b8e;
+    font-size: 15px;
+}
+
+.menu-toggle {
+    display: none; /* Hide for larger screens */
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.menu ul {
+    display: flex;
+    gap: 20px;
+    list-style-type: none;
+}
+
+.menu ul li {
+    display: inline;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    padding: 10px;
+    transition: color 0.3s, border-bottom 0.3s;
+}
+
+.menu ul li a:hover {
+    color: #0056b3;
+    border-bottom: 2px solid #0056b3;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="text"], textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    width: 100%;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.button.secondary {
+    background-color: #6c757d;
+    padding: 10px;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+}
+
+.button.secondary:hover {
+    background-color: #5a6268;
+}
+
+@media (max-width: 768px) {
+    .menu {
+        display: none; /* Hide the menu for small screens */
+    }
+
+    .menu-toggle {
+        display: flex;
+        justify-content: center;
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px;
+        cursor: pointer;
+    }
+
+    .menu-toggle span {
+        display: block;
+        margin: 5px;
+    }
+
+    .menu.open {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu.open ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .menu.open ul li a {
+        padding: 10px;
+    }
+}
+
+/* Success Message Styling */
+.success-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #28a745; /* Green background */
+    color: white; /* White text */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 18px;
+    display: none; /* Hidden by default */
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+/* Table Container */
+table {
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Table Headers */
+table th {
+    background-color: #007b8e;
+    color: #fff;
+    font-weight: bold;
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 2px solid #005f6b;
+}
+
+/* Table Cells */
+table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+    vertical-align: middle;
+}
+
+/* Alternating Row Background */
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Hover Effect for Rows */
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Header Row Styling */
+table thead {
+    background-color: #007b8e;
+}
+
+/* Button Styling within Table */
+table .button {
+    background-color: #007b8e;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    margin: 2px;
+    font-size: 0.9em;
+}
+
+table .button:hover {
+    background-color: #005f6b;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    table {
+        font-size: 14px;
+    }
+
+    table th, table td {
+        padding: 8px;
+    }
+}
+.current-votes {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.current-votes li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+}
+
+.current-votes li:last-child {
+    border-bottom: none;
+}
+
+.current-votes a {
+    color: #007b8e;
+    text-decoration: none;
+    font-weight: bold;
+    flex: 1;
+}
+
+.current-votes a:hover {
+    text-decoration: underline;
+}
+
+.current-votes span {
+    color: #555;
+    font-size: 0.9em;
+    margin-left: 10px;
+    white-space: nowrap;
+}
+
+.current-votes .actions {
+    display: flex;
+    align-items: center;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+}
+
+.current-votes .actions form {
+    margin-left: 10px;
+}
+.candidate-photo {
+    width: 50px; /* Adjust size as needed */
+    height: 50px; /* Adjust size as needed */
+    object-fit: cover;
+}
+img {
+    overflow-clip-margin: content-box;
+    overflow: clip;
+    width: 50px; /* Adjust size as needed */
+    height: 50px; /* Adjust size as needed */
+    object-fit: cover;
+}
