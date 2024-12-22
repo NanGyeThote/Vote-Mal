@@ -107,7 +107,6 @@ We welcome contributions! Please follow these steps:
 For inquiries or support, please email me at:
 
 Email: thant.ict.phyomg0107@gmail.com
-
     ```bash
     Feel free to adjust project details and screenshots as per your specific implementation!
     ```
